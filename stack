@@ -1,0 +1,50 @@
+#include<iostream>
+#include<cstdbool>
+using namespace std;
+class Stack;
+class Node
+{
+	private:
+		friend class Stack ;
+		Node *pre_node;
+		double num;
+	public:
+		Node(int inum, Node*mpre_node){
+			num=inum;//为什么inum改为num就会答案出错 
+			pre_node=mpre_node;
+		}
+		
+};
+class Stack
+{
+	private:
+		Node *head=0;
+		Node *tail=0;//null 
+	public:
+		void push(int data);
+		int pop(void);
+		Stack(){
+		}
+};
+
+void Stack::push(int data)
+{
+	Node *newnode=new Node(data,tail);
+	tail=newnode;
+}
+int Stack::pop(void)
+{
+	Node *temp=tail;
+	tail=tail->pre_node;
+	int tempdata=temp->num;
+	delete temp;//why need this step
+	return tempdata;
+}
+int main()
+{
+	Stack stack;
+	stack.push(1);
+	stack.push(2);
+	cout<<stack.pop()<<endl;
+	return 0;
+}
