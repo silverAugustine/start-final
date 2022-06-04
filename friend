@@ -1,0 +1,30 @@
+//友元函数
+#include<iostream>
+using namespace std;
+
+	class CSample
+	{
+		public:
+		CSample(void){
+		};
+		void MemberFunc(int a)
+		{
+			i=a;
+			}	
+		friend void FriendFunc(CSample &p,int);
+	private:
+		int i;
+	};
+void FriendFunc(CSample &p,int a)//&和*前可以无空格， p前*， &， 没有 都可以 
+{
+	p.i=a;						//&， 没有 用.     * 用-> 
+	cout<<"i="<<p.i<<endl;
+}
+int main()
+{
+	CSample p;
+	FriendFunc(p,3);
+
+	return 0;
+}
+// 友元类
