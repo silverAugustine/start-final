@@ -1,0 +1,29 @@
+//new//
+/* 数组返回首地址，非数组返回指向该类型对象的指针*/ 
+int *p;
+p=new int(1);/*  p=new int ;
+				*p=1;      */
+float *p1;
+p1=new float[3];// length is 3
+p[2]=20.9//third is 20.9
+
+int *p;
+p= new int;
+if(p!=null)
+{
+	// 申请到memeory正常读写 
+}
+else
+{
+	//not enough memory
+}
+/* two-dimensional array*/
+int m=5;
+int n=4;
+int **p;
+p=new int *[m];
+for(int i=0;i<m;i++)
+{
+	p[i]=new int[n];
+}
+
