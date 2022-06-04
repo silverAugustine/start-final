@@ -1,0 +1,66 @@
+#include<iostream>
+using namespace std;
+class Point{
+	public:
+		Point()
+		{
+			x=0;
+			y=0;
+			counter++;
+		}
+		Point(Point &obj)
+		{
+			x=obj.x;
+			y=obj.y;//remember writing down
+		}
+		Point(float x, float y)
+		{
+			this->x=x;
+			this->y=y;	
+			counter++;
+		}
+		~Point()
+		{
+			counter--;
+		}
+		float move(float x,float y)
+		{
+			this->x=x;
+			this->y=y;
+		}
+		float getX();
+
+		float getY()
+		{
+			return y;
+		}
+		static int getCounter()
+		{
+			return counter;
+		}
+	private:
+		float x;
+		float y;
+		float z;
+			float getZ();
+		static int counter;
+};
+int Point::counter=0;
+float Point::getX()
+		{
+			return x;
+		}
+float Point::getZ()
+		{
+			return z;
+		}
+int main()
+{
+	Point *p1=new Point(1,1);
+	Point *p3=new Point(1,2);
+	Point *p2=new Point(1,3);
+	Point a=*p1;
+
+	Point b(*p1);//*p1 not p1
+	return 0;
+}
