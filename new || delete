@@ -27,3 +27,10 @@ for(int i=0;i<m;i++)
 	p[i]=new int[n];
 }
 
+//delete//
+delete p;//释放指针变量所指向的堆内存 
+delete []p;
+for(i=0;i<m;i++)
+{
+	delete []p[i];//释放为数组分配的堆内存 
+}
